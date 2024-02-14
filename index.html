@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="content">
+        <dialog>
+            <form id="book-form" method="dialog">
+                <label for="title">
+                    Title:
+                    <input type="text" name="book_form" id="title" required>
+                </label>
+                <label for="author">
+                    Author:
+                    <input type="text" name="book_form" id="author" required>
+                </label>
+                <label for="pages">
+                    # of Pages:
+                    <input type="number" name="book_form" id="pages" required>
+                </label>
+                <label>
+                    <label>Read book?</label>
+                    <label for="true">
+                        <input type="radio" name="read" id="true" value="true" required>
+                        Yes
+                    </label>
+                    <label for="false">
+                        <input type="radio" name="read" id="false" value="false" required>
+                        No
+                    </label>
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+            <button id="close">Close</button>
+        </dialog>
+        <button id="new-book">New Book</button>
+        <div id="grid-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
