@@ -5,22 +5,41 @@ const newBookButton = document.querySelector('dialog + button')
 const closeButton = document.getElementById('close')
 const form = document.getElementById('book-form')
 
-// Object Definition
-function Book(title, author, numPages, read) {
-    this.title = title,
-    this.author = author,
-    this.numPages = numPages
-    this.read = read
+// New class declaration
+class Book {
+    constructor(title, author, numPages, read) {
+        this.title = title,
+        this.author = author,
+        this.numPages = numPages
+        this.read = read
+    }
 
-    this.info = function() {
+    info = () => {
         let hasRead = read == true ? "has read" : "has not read"
         return `${title} by ${author}, ${numPages} pages, ${hasRead}`
     }
+
+    toggleRead = () => {
+        return this.read = !this.read
+    }
 }
 
-Book.prototype.toggleRead = function() {
-    return this.read = !this.read
-}
+// Old Object declaration for reference
+// function Book(title, author, numPages, read) {
+//     this.title = title,
+//     this.author = author,
+//     this.numPages = numPages
+//     this.read = read
+
+//     this.info = function() {
+//         let hasRead = read == true ? "has read" : "has not read"
+//         return `${title} by ${author}, ${numPages} pages, ${hasRead}`
+//     }
+// }
+
+// Book.prototype.toggleRead = function() {
+//     return this.read = !this.read
+// }
 
 // Define library array
 const myLibrary = []
@@ -76,6 +95,7 @@ function updateBook(book, id) {
 document.body.addEventListener('click', (event) => {
     if(event.target.classList.contains('remove')) {
         removeCardFromDisplay(event.target.id)
+        myLibrary.splice(event.target.id, 1)
     } else if(event.target.classList.contains('edit')) {
         const id = event.target.id
         myLibrary[id].toggleRead()
